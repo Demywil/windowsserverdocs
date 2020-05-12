@@ -118,6 +118,9 @@ We need to register the dll in AD FS by using the `Register-AdfsThreatDetectionM
 3. Run the **SN** command with the **-T** parameter and the location of the file (In my case `SN -T "C:\extensions\ThreatDetectionModule.dll"`)
    ![model](media/ad-fs-risk-assessment-model/risk13.png)</br>
    The command will provide you the public key token (For me, the **Public Key Token is 714697626ef96b35**)
+   
+   >{!NOTE]
+   > If you are running Visual Studio on a different computer than your AD FS server, then you will need to run sn.exe on the machine with Visual Studio to get the public key token.
 
 4. Add the dll to the **Global Assembly Cache** of the AD FS server
    Our best practice would be that you create a proper installer for your project and use the installer to add the file to the GAC. Another solution is to use **Gacutil.exe** (more information on **Gacutil.exe** available [here](https://docs.microsoft.com/dotnet/framework/tools/gacutil-exe-gac-tool)) on your development machine.  Since I have my visual studio on the same server as AD FS, I will be using **Gacutil.exe** as follows
